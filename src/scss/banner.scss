@@ -1,0 +1,186 @@
+@import 'navigation';
+
+.banner {
+	min-height: 100vh;
+
+	background: radial-gradient(55.53% 33.64% at 50% 50%, #ff7d9649 0%, rgba(245, 64, 137, 4e-5) 100%);
+	mix-blend-mode: normal;
+	opacity: 0.75;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+}
+
+.counter {
+	margin-top: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.counter__head {
+	font-family: Archivo;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 116%;
+	line-height: 15px;
+
+	color: #643c5a;
+	margin-bottom: 11px;
+}
+.counter__cur {
+	font-family: Archivo;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 250%;
+	line-height: 33px;
+	/* identical to box height */
+
+	text-transform: uppercase;
+
+	color: #f6f6f6;
+	// margin-bottom: 10px;
+}
+.counter__cap {
+	font-weight: bold;
+	font-size: 116%;
+	line-height: 33px;
+	text-transform: uppercase;
+	color: #ffffff;
+	margin-bottom: 48px;
+}
+
+.card {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	top: 31%;
+}
+.card__cap {
+	width: auto;
+	font-weight: bold;
+	font-size: 12px;
+	text-align: center;
+	text-transform: uppercase;
+	color: $clrFontTh;
+}
+.card__header {
+	font-family: "Archivo Black";
+	font-size: 170px;
+	line-height: 165px;
+	text-align: center;
+	text-transform: uppercase;
+	color: #ffeff6;
+	margin: auto;
+	z-index: 10;
+	&:after {
+		display: block;
+		content: "";
+		width: 80%;
+		height: 30vh;
+		background: url(../images/lettering.png) no-repeat center;
+		background-size: contain;
+		bottom: 100px;
+		margin-left: auto;
+		margin-right: auto;
+		position: relative;
+		filter: drop-shadow(29px -15px 5px hsla(0, 0%, 13%, 0.3));
+	}
+}
+
+.bgWrap {
+	position: absolute;
+	min-height: 100%;
+	width: 100%;
+	display: flex;
+}
+.bgLayerBack,
+.bgLayerMiddle,
+.bgLayerFront {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	display: flex;
+}
+@mixin bgback($wmax, $url) {
+	width: $wmax;
+	height: $wmax;
+	background: url($url) no-repeat center;
+	background-size: contain;
+	filter: blur(7px);
+	opacity: 0.74;
+	position: absolute;
+}
+
+.bgBack__blur1 {
+	@include bgback(22px, "../images/ball2.png");
+	top: 25%;
+	left: 12%;
+}
+.bgBack__blur2 {
+	@include bgback(100px, "../images/torus3.png");
+	top: 15%;
+	right: 42%;
+}
+.bgBack__blur3 {
+	@include bgback(15px, "../images/ball1.png");
+	top: 43%;
+	right: 8%;
+}
+.bgBack__blur4 {
+	@include bgback(68px, "../images/heart22.png");
+	bottom: 18%;
+	right: 33%;
+}
+
+@mixin bgmiddle($wmax, $url) {
+	width: $wmax;
+	height: $wmax;
+	background: url($url) no-repeat center;
+	background-size: contain;
+	filter: drop-shadow(-15px 10px 20px rgba(20, 4, 24, 0.400514));
+	position: absolute;
+}
+.bgMiddle__bg1 {
+	@include bgmiddle(196px, "../images/Headphone_JD.png");
+	left: 15%;
+	top: 13%;
+}
+.bgMiddle__bg2 {
+	@include bgmiddle(270px, "../images/CLAQUETA_basica.png");
+	right: 10%;
+	bottom: 21%;
+}
+.bgMiddle__bg3 {
+	@include bgmiddle(256px, "../images/camera.png");
+	left: 7%;
+	bottom: 13%;
+}
+
+@mixin bgfront($wmax, $url) {
+	width: $wmax;
+	height: $wmax;
+	background: url($url) no-repeat center;
+	background-size: contain;
+	filter: drop-shadow(-24px -10px 20px rgba(97, 9, 8, 0.17));
+	position: absolute;
+}
+.bgFront__bg1 {
+	@include bgfront(206px, "../images/youtube3.png");
+	right: 17%;
+	top: 7%;
+}
+.bgFront__bg2 {
+	@include bgfront(120px, "../images/torus.png");
+	right: 9%;
+	bottom: 11%;
+}
+.bgFront__bg3 {
+	@include bgfront(74px, "../images/note2.png");
+	left: 27%;
+	bottom: 8%;
+}

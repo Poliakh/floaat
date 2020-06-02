@@ -1,0 +1,252 @@
+.wedo {
+	background-color: $bgFirst;
+	min-height: 100vh;
+	width: 100%;
+	color: white;
+	margin-bottom: 400px;
+}
+.wedo__container {
+	display: flexbox;
+}
+.wedo__header {
+	font-family: "Archivo Black", sans-serif;
+	font-size: 38px;
+	text-transform: uppercase;
+	color: #fff;
+	margin-top: 5%;
+}
+.wrapDo {
+	margin: auto;
+	// margin-top: 3%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.btnPanel {
+	display: flex;
+	width: 600px;
+	flex-wrap: wrap;
+	justify-content: start;
+	align-content: flex-start;
+}
+$timeout: 0.25s;
+
+.btnPanel__btn {
+	width: 174px;
+	height: 174px;
+	margin-right: 10px;
+	margin-top: 10px;
+	left: 237px;
+	top: 1402px;
+	border: none;
+	border-radius: 12px;
+	box-shadow: none;
+	background-color: rgba(100, 60, 90, 0.2);
+	-webkit-transition: background $timeout ease-in;
+	-moz-transition: background $timeout ease-in;
+	-o-transition: background $timeout ease-in;
+	transition: background $timeout ease-in;
+	&:after {
+		display: block;
+		content: "";
+		width: 100%;
+		height: 100%;
+		// background-image: url("../images/tiles/gear_dark.png");
+		background-repeat: no-repeat;
+		background-size: contain;
+		background-position: 50%;
+		filter: drop-shadow(-15px 10px 20px rgba(13, 4, 15, 0.774));
+	}
+
+	&:hover,
+	&.active {
+		cursor: $pointer;
+		background-color: #dd051f;
+		mix-blend-mode: normal;
+		background: -webkit-linear-gradient(318.23deg, 8.31%, #dd041f 69.98%);
+		background: -moz-linear-gradient(318.23deg, 8.31%, #dd041f 69.98%);
+		background: -o-linear-gradient(318.23deg, 8.31%, #dd041f 69.98%);
+		background: linear-gradient(318.23deg, 8.31%, #dd041f 69.98%);
+		-webkit-transition: background $timeout ease-out;
+		-moz-transition: background $timeout ease-out;
+		-o-transition: background $timeout ease-out;
+		transition: background $timeout ease-out;
+		&:after {
+			// background-image: url("../images/tiles/gear_red.png");
+			filter: drop-shadow(-17px 22px 12px rgba(85, 9, 9, 0.4));
+			background-size: contain;
+			background-position: 50% 50%;
+			opacity: 0.8;
+		}
+	}
+}
+@mixin btn($wMax, $erlDrrk, $urlRed) {
+	// .btnPanel__btn{
+	&:after {
+		background-image: url($erlDrrk);
+		background-size: $wMax;
+	}
+	&:hover,
+	&.active {
+		&:after {
+			background-image: url($urlRed);
+		}
+	}
+}
+// }
+.btnPanel__btn[data-serv="managment"] {
+	@include btn(207px, "../images/tiles/gear_dark.png", "../images/tiles/gear_red.png");
+}
+.btnPanel__btn[data-serv="ceative"] {
+	@include btn(118px, "../images/tiles/stars_dark.png", "../images/tiles/star_red.png");
+}
+.btnPanel__btn[data-serv="design"] {
+	@include btn(119px, "../images/tiles/graphik_small.png", "../images/tiles/graphik_red.png");
+}
+.btnPanel__btn[data-serv="busines"] {
+	@include btn(105px, "../images/tiles/lupa_small.png", "../images/tiles/lupa_red.png");
+}
+.btnPanel__btn[data-serv="animation"] {
+	@include btn(139px, "../images/tiles/hlopushka_small.png", "../images/tiles/hlopushka_red.png");
+}
+.btnPanel__btn[data-serv="brand"] {
+	@include btn(115px, "../images/tiles/headphone_small.png", "../images/tiles/headphone_red.png");
+}
+
+.figure {
+	width: 50%;
+	// background-color: rgba(255, 255, 255, 0.05);
+	min-height: 100%;
+	display: flex;
+	position: relative;
+	&:after {
+		display: block;
+		content: "";
+		height: 420px;
+		width: 420px;
+		// background-image: url("../images/gear2.png");
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-position: 50%;
+		margin: auto;
+	}
+}
+@mixin figureImg($wMax, $urlImg) {
+	&:after {
+		height: $wMax;
+		width: $wMax;
+		background-image: url($urlImg);
+		filter: drop-shadow(-15px 10px 20px rgba(52, 7, 64, 0.56));
+	}
+}
+
+.figure[data-serv="managment"] {
+	@include figureImg(420px, "../images/gear2.png");
+}
+.figure[data-serv="ceative"] {
+	@include figureImg(406px, "../images/star_big.png");
+}
+.figure[data-serv="design"] {
+	@include figureImg(446px, "../images/graphik_big.png");
+}
+.figure[data-serv="animation"] {
+	@include figureImg(400px, "../images/CLAQUETA_basica.png");
+}
+.figure[data-serv="busines"] {
+	@include figureImg(384px, "../images/Lupa_big.png");
+}
+.figure[data-serv="brand"] {
+	@include figureImg(384px, "../images/Headphone_JD.png");
+}
+
+@mixin figureBg($wmax, $url) {
+	width: $wmax;
+	height: $wmax;
+	background: url($url) no-repeat center;
+	background-size: contain;
+	filter: blur(7px);
+	opacity: 0.74;
+	position: absolute;
+}
+
+.figure__blur1 {
+	@include figureBg(22px, "../images/ball2.png");
+	top: 2%;
+	left: 2%;
+}
+.figure__blur2 {
+	@include figureBg(15px, "../images/ball1.png");
+	top: 18%;
+	right: 17%;
+}
+.figure__blur3 {
+	@include figureBg(72px, "../images/heart22.png");
+	top: 84%;
+	right: 85%;
+}
+
+.figure__descr {
+	font-family: "Archivo", sans-serif;
+	font-weight: bold;
+	z-index: 5;
+	text-align: center;
+	width: 100%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.figure__serv {
+	font-size: 36px;
+	color: #fff;
+	margin-bottom: 17px;
+	margin-top: 2%;
+	&:after{
+		display: block;
+		white-space: pre;
+		content: '--';
+	}
+}
+@mixin headServ($text){
+	&:after{
+		content:$text;
+	}
+}
+
+.figure[data-serv="managment"] .figure__serv{
+	@include headServ('Channel Operation\0a and Management')
+}
+.figure[data-serv="ceative"] .figure__serv{
+	@include headServ('Creative Services for\0a Infuencers')
+
+}
+.figure[data-serv="design"] .figure__serv{
+	@include headServ('Graphic Design &\0a Photography')
+
+}
+.figure[data-serv="animation"] .figure__serv{
+	@include headServ('Lyric Videos &\0a Animation')
+}
+.figure[data-serv="busines"] .figure__serv{
+	@include headServ('Business Development')
+}
+.figure[data-serv="brand"] .figure__serv{
+	@include headServ('Brand Campaigns')
+}
+// Channel Operation and Management
+// Creative Services for Infuencers
+// Graphic Design & Photography
+// Lyric Videos & Animation
+// Business Development
+// Brand Campaigns
+.figure__link {
+	font-family: "Archivo Black", sans-serif;
+	font-size: 18px;
+	color: $clrFont;
+	text-decoration: none;
+	&:hover {
+		text-decoration: underline;
+		cursor: $pointer;
+	}
+}
