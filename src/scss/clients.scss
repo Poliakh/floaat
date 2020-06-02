@@ -72,11 +72,17 @@
 	position: relative;
 	transform: translateY(63px);
 }
-$b-radius: 5px;
-.tile__img {
+$b-radius: 6px;
+.tile__img, .tile__img img{
 	border-radius: $b-radius;
 	position: relative;
+	overflow: hidden;
+	// bordr-radius: 8px;
+
 }
+// .tile__img img{
+// 	object-fit: contain;
+// }
 .tile__hover {
 	opacity: 0;
 	position: absolute;
@@ -168,11 +174,13 @@ $b-radius: 5px;
 }
 .client__blur2 {
 	@include clientBg(60px, "../images/YOUT.png");
-	top: 19%;
-	right: 24%;
+	top: 32%;
+    right: 17%;
+
 }
 .client__blur3 {
 	@include clientBg(50px, "../images/sphere__yelow.png");
 	bottom: 10%;
 	left: 37%;
 }
+

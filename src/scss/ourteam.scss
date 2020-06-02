@@ -156,16 +156,16 @@
 
 .ourteam__blur1 {
 	@include ourteamBg(71px, "../images/note_2screen.png");
-	top: 20%;
-	right: 30%;
+	top: 12%;
+    right: 33%;
 }
 .ourteam__blur2 {
 	@include ourteamBg(75px, "../images/torus_yelow.png");
-	bottom: 15%;
-	right: 10%;
+	bottom: 34%;
+    right: 22%;
 }
 .ourteam__blur3 {
 	@include ourteamBg(48px, "../images/spher_2screen2.png");
-	top: 65%;
-	right: 86%;
+	top: 48%;
+    right: 80%;
 }

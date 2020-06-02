@@ -33,6 +33,9 @@ a, button{
 
 	}
 }
+button{
+	outline: none;
+}
 
 .wrap {
 	margin: 0 auto;
@@ -127,6 +130,11 @@ $deborder:solid 1px rgba(255, 0, 0, 0.2);
 .panel{
 	z-index: 100;
 }
+
+.move{
+	transition: transform 10s cubic-bezier(0.54, 0.14, 0.25, 1.29), -webkit-transform 10s cubic-bezier(0.54, 0.14, 0.25, 1.29);
+}
+
 @import 'loading';
 @import 'banner';
 @import 'clients';

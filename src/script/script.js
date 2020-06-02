@@ -18,7 +18,7 @@ const scrollMagic = () => { // wait for document ready
 			triggerElement: slides[i]
 		})
 			.setPin(slides[i], { pushFollowers: false })
-			.addIndicators() // add indicators (requires plugin)
+			// .addIndicators() // add indicators (requires plugin)
 			.addTo(controller);
 
 	}
@@ -46,17 +46,9 @@ const scrollMagic = () => { // wait for document ready
 			}
 		})
 		.addTo(controller);
-
-
 };
 
 window.addEventListener('load', scrollMagic);
-
-
-
-
-
-
 
 // build tiles
 var elem = document.querySelector('.content__tiles');
@@ -81,12 +73,9 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-// window.addEventListener('mousemove', (e) => {
-// 	// console.log(e.clientX , e.clientY);
-// 	const cur = document.getElementById('cur');
-// 	cur.style.top = e.clientY + 'px';
-// 	cur.style.left = e.clientX +'px';
-// 	// console.dir(cur);
 	
-// });
-
+	//= modules/randomMove.js
+	//= modules/parallax.js
+	//= modules/rotate3d.js
+	//= modules/lightOfCursor.js
+	//= modules/wedo.js

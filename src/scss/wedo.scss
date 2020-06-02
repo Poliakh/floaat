@@ -117,7 +117,7 @@ $timeout: 0.25s;
 .figure {
 	width: 50%;
 	// background-color: rgba(255, 255, 255, 0.05);
-	min-height: 100%;
+	height: 500px;
 	display: flex;
 	position: relative;
 	&:after {
@@ -130,6 +130,10 @@ $timeout: 0.25s;
 		background-repeat: no-repeat;
 		background-position: 50%;
 		margin: auto;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translateX(-50%) translateY(-50%);
 	}
 }
 @mixin figureImg($wMax, $urlImg) {
@@ -169,23 +173,54 @@ $timeout: 0.25s;
 	opacity: 0.74;
 	position: absolute;
 }
-
+.figure__blur1,
+.figure__blur2,
+.figure__blur3 {
+	transition: all 0.2s cubic-bezier(0.42, 0, 0.76, 1.4);
+}
+// .figure__bgBack.figur__bgBack-btnHover{
+// 	transition: all 0.1s ease-in-out;
+// }
 .figure__blur1 {
 	@include figureBg(22px, "../images/ball2.png");
 	top: 2%;
 	left: 2%;
+}
+
+.figur__bgBack-btnHover .figure__blur1 {
+	top: 23%;
+	left: -3%;
+}
+.figur__bgBack-btnActive .figure__blur1 {
+	top: 29%;
+	left: 23%;
 }
 .figure__blur2 {
 	@include figureBg(15px, "../images/ball1.png");
 	top: 18%;
 	right: 17%;
 }
+.figur__bgBack-btnHover .figure__blur2 {
+	top: 41%;
+	right: 12%;
+}
+.figur__bgBack-btnActive .figure__blur2 {
+	top: 25%;
+	right: 28%;
+}
 .figure__blur3 {
 	@include figureBg(72px, "../images/heart22.png");
 	top: 84%;
 	right: 85%;
 }
-
+.figur__bgBack-btnHover .figure__blur3 {
+	top: 96%;
+	right: 64%;
+}
+.figur__bgBack-btnActive .figure__blur3 {
+	top: 71%;
+	right: 63%;
+}
 .figure__descr {
 	font-family: "Archivo", sans-serif;
 	font-weight: bold;
@@ -202,44 +237,41 @@ $timeout: 0.25s;
 	color: #fff;
 	margin-bottom: 17px;
 	margin-top: 2%;
-	&:after{
+	&:after {
 		display: block;
 		white-space: pre;
-		content: '--';
-	}
-}
-@mixin headServ($text){
-	&:after{
-		content:$text;
+		content: "--";
 	}
 }
 
-.figure[data-serv="managment"] .figure__serv{
-	@include headServ('Channel Operation\0a and Management')
+.figure__bgBack {
+	width: 100%;
 }
-.figure[data-serv="ceative"] .figure__serv{
-	@include headServ('Creative Services for\0a Infuencers')
 
+@mixin headServ($text) {
+	&:after {
+		content: $text;
+	}
 }
-.figure[data-serv="design"] .figure__serv{
-	@include headServ('Graphic Design &\0a Photography')
 
+.figure[data-serv="managment"] .figure__serv {
+	@include headServ("Channel Operation\0a and Management");
 }
-.figure[data-serv="animation"] .figure__serv{
-	@include headServ('Lyric Videos &\0a Animation')
+.figure[data-serv="ceative"] .figure__serv {
+	@include headServ("Creative Services for\0a Infuencers");
 }
-.figure[data-serv="busines"] .figure__serv{
-	@include headServ('Business Development')
+.figure[data-serv="design"] .figure__serv {
+	@include headServ("Graphic Design &\0a Photography");
 }
-.figure[data-serv="brand"] .figure__serv{
-	@include headServ('Brand Campaigns')
+.figure[data-serv="animation"] .figure__serv {
+	@include headServ("Lyric Videos &\0a Animation");
 }
-// Channel Operation and Management
-// Creative Services for Infuencers
-// Graphic Design & Photography
-// Lyric Videos & Animation
-// Business Development
-// Brand Campaigns
+.figure[data-serv="busines"] .figure__serv {
+	@include headServ("Business Development");
+}
+.figure[data-serv="brand"] .figure__serv {
+	@include headServ("Brand Campaigns");
+}
 .figure__link {
 	font-family: "Archivo Black", sans-serif;
 	font-size: 18px;
