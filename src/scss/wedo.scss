@@ -6,7 +6,6 @@
 	margin-bottom: 400px;
 }
 .wedo__container {
-	display: flexbox;
 }
 .wedo__header {
 	font-family: "Archivo Black", sans-serif;
@@ -26,8 +25,9 @@
 .btnPanel {
 	display: flex;
 	width: 600px;
+	min-width: 600px;
 	flex-wrap: wrap;
-	justify-content: start;
+	justify-content: center;
 	align-content: flex-start;
 }
 $timeout: 0.25s;
@@ -54,14 +54,15 @@ $timeout: 0.25s;
 		height: 100%;
 		// background-image: url("../images/tiles/gear_dark.png");
 		background-repeat: no-repeat;
-		background-size: contain;
+		// background-size: contain;
 		background-position: 50%;
 		filter: drop-shadow(-15px 10px 20px rgba(13, 4, 15, 0.774));
+		background-size: 60%;
 	}
 
 	&:hover,
 	&.active {
-		cursor: $pointer;
+		// cursor: $pointer;
 		background-color: #dd051f;
 		mix-blend-mode: normal;
 		background: -webkit-linear-gradient(318.23deg, 8.31%, #dd041f 69.98%);
@@ -75,17 +76,17 @@ $timeout: 0.25s;
 		&:after {
 			// background-image: url("../images/tiles/gear_red.png");
 			filter: drop-shadow(-17px 22px 12px rgba(85, 9, 9, 0.4));
-			background-size: contain;
+			// background-size: contain;
 			background-position: 50% 50%;
 			opacity: 0.8;
 		}
 	}
 }
-@mixin btn($wMax, $erlDrrk, $urlRed) {
+@mixin btn(/* $wMax, */ $urlDrrk, $urlRed) {
 	// .btnPanel__btn{
 	&:after {
-		background-image: url($erlDrrk);
-		background-size: $wMax;
+		background-image: url($urlDrrk);
+		// background-size: $wMax;
 	}
 	&:hover,
 	&.active {
@@ -96,22 +97,22 @@ $timeout: 0.25s;
 }
 // }
 .btnPanel__btn[data-serv="managment"] {
-	@include btn(207px, "../images/tiles/gear_dark.png", "../images/tiles/gear_red.png");
+	@include btn( "../images/tiles/gear_dark.png", "../images/tiles/gear_red.png");
 }
 .btnPanel__btn[data-serv="ceative"] {
-	@include btn(118px, "../images/tiles/stars_dark.png", "../images/tiles/star_red.png");
+	@include btn( "../images/tiles/stars_dark.png", "../images/tiles/star_red.png");
 }
 .btnPanel__btn[data-serv="design"] {
-	@include btn(119px, "../images/tiles/graphik_small.png", "../images/tiles/graphik_red.png");
+	@include btn( "../images/tiles/graphik_small.png", "../images/tiles/graphik_red.png");
 }
 .btnPanel__btn[data-serv="busines"] {
-	@include btn(105px, "../images/tiles/lupa_small.png", "../images/tiles/lupa_red.png");
+	@include btn( "../images/tiles/lupa_small.png", "../images/tiles/lupa_red.png");
 }
 .btnPanel__btn[data-serv="animation"] {
-	@include btn(139px, "../images/tiles/hlopushka_small.png", "../images/tiles/hlopushka_red.png");
+	@include btn( "../images/tiles/hlopushka_small.png", "../images/tiles/hlopushka_red.png");
 }
 .btnPanel__btn[data-serv="brand"] {
-	@include btn(115px, "../images/tiles/headphone_small.png", "../images/tiles/headphone_red.png");
+	@include btn( "../images/tiles/headphone_small.png", "../images/tiles/headphone_red.png");
 }
 
 .figure {
@@ -136,32 +137,30 @@ $timeout: 0.25s;
 		transform: translateX(-50%) translateY(-50%);
 	}
 }
-@mixin figureImg($wMax, $urlImg) {
+@mixin figureImg( $urlImg) {
 	&:after {
-		height: $wMax;
-		width: $wMax;
 		background-image: url($urlImg);
 		filter: drop-shadow(-15px 10px 20px rgba(52, 7, 64, 0.56));
 	}
 }
 
 .figure[data-serv="managment"] {
-	@include figureImg(420px, "../images/gear2.png");
+	@include figureImg( "../images/gear2.png");
 }
 .figure[data-serv="ceative"] {
-	@include figureImg(406px, "../images/star_big.png");
+	@include figureImg("../images/star_big.png");
 }
 .figure[data-serv="design"] {
-	@include figureImg(446px, "../images/graphik_big.png");
+	@include figureImg("../images/graphik_big.png");
 }
 .figure[data-serv="animation"] {
-	@include figureImg(400px, "../images/CLAQUETA_basica.png");
+	@include figureImg("../images/CLAQUETA_basica.png");
 }
 .figure[data-serv="busines"] {
-	@include figureImg(384px, "../images/Lupa_big.png");
+	@include figureImg("../images/Lupa_big.png");
 }
 .figure[data-serv="brand"] {
-	@include figureImg(384px, "../images/Headphone_JD.png");
+	@include figureImg("../images/Headphone_JD.png");
 }
 
 @mixin figureBg($wmax, $url) {
@@ -239,8 +238,8 @@ $timeout: 0.25s;
 	margin-top: 2%;
 	&:after {
 		display: block;
-		white-space: pre;
 		content: "--";
+		white-space: normal;
 	}
 }
 
@@ -279,6 +278,41 @@ $timeout: 0.25s;
 	text-decoration: none;
 	&:hover {
 		text-decoration: underline;
-		cursor: $pointer;
+		// cursor: $pointer;
+	}
+}
+@media screen and (max-width: 500px) {
+	.btnPanel {
+		width: 460px;
+		min-width: 430px;
+	}
+
+}
+@media screen and (max-width: 800px) {
+	.wrapDo {
+		flex-direction: column-reverse;
+	}
+}
+
+@media screen and (max-width: 1100px) {
+	.btnPanel {
+		width: 460px;
+		min-width: 430px;
+	}
+	.btnPanel__btn {
+		width: 140px;
+		height: 140px;
+
+		&:after {
+			// background-size: 80%;
+		}
+	}
+	.figure {
+		width: 71%;
+		height: 325px;
+		&:after{
+			height: 300px;
+			width: 300px;
+		}
 	}
 }

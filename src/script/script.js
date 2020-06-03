@@ -1,6 +1,4 @@
-
-
-const scrollMagic = () => { // wait for document ready
+function scrollMagic() { // wait for document ready
 	// init
 	const controller = new ScrollMagic.Controller({
 		globalSceneOptions: {
@@ -38,7 +36,7 @@ const scrollMagic = () => { // wait for document ready
 				// let x = (scrollElem.offsetTop>0)? 90:0;
 				let scroll = scrollElem.offsetTop * 1.5//scrolling begins with 90 px, I do not know why
 				if (scroll < offset) {
-						scrollElem.style.top = -scroll + 'px';
+					scrollElem.style.top = -scroll + 'px';
 
 				} else {
 					scrollElem.style.top = -offset + 'px'
@@ -47,8 +45,22 @@ const scrollMagic = () => { // wait for document ready
 		})
 		.addTo(controller);
 };
+scrollMagic();
 
-window.addEventListener('load', scrollMagic);
+//= modules/slider.js
+//= modules/cursor.js
+//= modules/randomMove.js
+//= modules/parallax.js
+//= modules/rotate3d.js
+//= modules/lightOfCursor.js
+//= modules/wedo.js
+
+document.addEventListener('DOMContentLoaded', function () {
+	const slider = new Slider('slider', 'slider__list', 'slider__item', 'slider__btnLeft', 'slider__btnRight', 'slider__indicat', 300);
+});
+
+
+
 
 // build tiles
 var elem = document.querySelector('.content__tiles');
@@ -57,25 +69,17 @@ var msnry = new Masonry(elem, {
 	itemSelector: '.tile',
 	columnWidth: 225,
 	horizontalOrder: true
-});
-
-// element argument can be a selector string
-//   for an individual element
-// var msnry = new Masonry('.tile', {
-// 	// options
-// });
-
-//= modules/slider.js
-
-
-document.addEventListener('DOMContentLoaded', function () {
-	const slider = new Slider('slider', 'slider__list', 'slider__item', 'slider__btnLeft', 'slider__btnRight', 'slider__indicat', 300);
-});
-
-
 	
-	//= modules/randomMove.js
-	//= modules/parallax.js
-	//= modules/rotate3d.js
-	//= modules/lightOfCursor.js
-	//= modules/wedo.js
+});
+
+
+window.addEventListener('load', () => {
+	cardParallax();
+	randomMove();
+
+});
+
+window.addEventListener('resize', () => {
+	// cardParallax();
+	// randomMove();
+})

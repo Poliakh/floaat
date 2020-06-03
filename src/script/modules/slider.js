@@ -13,6 +13,7 @@ class Slider {
 		this.addEvent();
 		this.resize();
 		this.indicateInit();
+		this.withWrap();
 	}
 	indicateInit() {
 		if (this.indicate) {
@@ -117,6 +118,10 @@ class Slider {
 	removeEvent() {
 		this.slider.removeEventListener('mouseup', this.removeEventListener);
 
+	}
+	withWrap() {
+		// const withList = this.list
+		// const wrap = document.querySelector
 	}
 	resize() {
 		window.addEventListener(`resize`, ev => {

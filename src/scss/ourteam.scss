@@ -14,7 +14,9 @@
 	padding-top: 64px;
 }
 .slider {
-	width: 1073px;
+	// min-width: 1075px;
+	max-width: 1075px;
+	width: 75%;
 	height: 335px;
 	margin-left: auto;
 	margin-right: auto;
@@ -26,27 +28,34 @@
 	margin: auto;
 	height: 100%;
 	position: relative;
+	border-radius: 10px;
 }
 .slider__list {
 	position: absolute;
 	display: flex;
 	margin: auto;
 	left: 0;
+	height: 100%;
 	transition: left 0.3s ease-out;
 }
 .slider__item {
-	display: block;
+	// display: block;
 	position: relative;
 	border-radius: 10px;
 	overflow: hidden;
 	margin-right: 7px;
+	height: 100%;
 }
 
 .slider__img {
-	min-width: 263px;
-	height: 100%;
+	// min-width: 263px;
+	// height: auto;
+	// width: 263px;
 	// height: 335px;
 	object-fit: cover;
+	object-position: center top;
+	height: inherit;
+    width: inherit;
 }
 .slider__hover {
 	opacity: 0;
@@ -79,7 +88,7 @@
 
 .slider__item:hover .slider__hover {
 	opacity: 1;
-	cursor: $pointer;
+	// cursor: $pointer;
 }
 .slider__control {
 	width: 100%;
@@ -148,7 +157,7 @@
 	width: $wmax;
 	height: $wmax;
 	background: url($url) no-repeat center;
-	filter:drop-shadow(-20px 24px 10px rgba(93, 50, 49, 0.2));
+	filter: drop-shadow(-20px 24px 10px rgba(93, 50, 49, 0.2));
 	background-size: contain;
 	position: absolute;
 	z-index: 10;
@@ -157,15 +166,24 @@
 .ourteam__blur1 {
 	@include ourteamBg(71px, "../images/note_2screen.png");
 	top: 12%;
-    right: 33%;
+	right: 33%;
 }
 .ourteam__blur2 {
 	@include ourteamBg(75px, "../images/torus_yelow.png");
 	bottom: 34%;
-    right: 22%;
+	right: 22%;
 }
 .ourteam__blur3 {
 	@include ourteamBg(48px, "../images/spher_2screen2.png");
 	top: 48%;
-    right: 80%;
+	right: 80%;
+}
+
+@media screen and (min-width: 1100px) {
+	// .slider__img {
+	// 	width: 250px
+	// }
+	// .slider {
+	// 	width: 1075px;
+	// }
 }

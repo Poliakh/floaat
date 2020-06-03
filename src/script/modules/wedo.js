@@ -25,13 +25,13 @@
 	wrapDo.addEventListener('mouseover', ({ target }) => {
 		if (target.classList.contains('btnPanel__btn')) {
 			figure.classList.add('figur__bgBack-btnHover');
-		} else if (!target.classList.contains('btnPanel__btn')
-			&& figure.classList.contains('figur__bgBack-btnHover')) {
-			figure.classList.remove('figur__bgBack-btnHover');
+			target.addEventListener('mouseout', () => {
+				figure.classList.remove('figur__bgBack-btnHover');
+			})
 		}
 	});
-	wrapDo.addEventListener('click', ({target}) => {
-		if(target.classList.contains('btnPanel__btn')){
+	wrapDo.addEventListener('click', ({ target }) => {
+		if (target.classList.contains('btnPanel__btn')) {
 			figure.classList.add('figur__bgBack-btnActive');
 			setTimeout(() => {
 				figure.classList.remove('figur__bgBack-btnActive');
