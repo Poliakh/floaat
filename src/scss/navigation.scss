@@ -73,3 +73,14 @@
 .lightBgNavigator .navmenu__contactus {
 	color: $clrFontHead;
 }
+@media screen and (max-width: 800px), (max-height: 800px){
+	.nav{
+		min-height: 60px;
+	}
+	.navmenu__logo{
+		font-size: 28px;
+	}
+	.navmenu__contactus{
+		font-size: 12px;
+	}
+}
