@@ -80,6 +80,6 @@ window.addEventListener('load', () => {
 });
 
 window.addEventListener('resize', () => {
-	// cardParallax();
-	// randomMove();
+	cardParallax();
+	randomMove();
 })
