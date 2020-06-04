@@ -56,12 +56,7 @@ scrollMagic();
 //= modules/rotate3d.js
 //= modules/lightOfCursor.js
 //= modules/wedo.js
-
-document.addEventListener('DOMContentLoaded', function () {
-	const slider = new Slider('slider', 'slider__list', 'slider__item', 'slider__btnLeft', 'slider__btnRight', 'slider__indicat', 300);
-});
-
-
+//= modules/ourteam.js
 
 
 // build tiles on page clients
