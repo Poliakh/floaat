@@ -30,11 +30,13 @@ function scrollMagic() { // wait for document ready
 		duration: 100
 	})
 		.on("progress", (e) => {
-			let offset = scrollElem.scrollHeight - window.innerHeight;
+			let scrollH = scrollElem.scrollHeight;
+			let windowH = window.innerHeight;
+			let offset = scrollH - windowH;
 			if (offset >= 0) {
 				scene.setPin(scrollElem)
 				// let x = (scrollElem.offsetTop>0)? 90:0;
-				let scroll = scrollElem.offsetTop * 1.5//scrolling begins with 90 px, I do not know why
+				let scroll = scrollElem.offsetTop * (scrollH /windowH)*1.3;////scrolling begins with 90 px, I do not know why
 				if (scroll < offset) {
 					scrollElem.style.top = -scroll + 'px';
 
@@ -62,15 +64,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-// build tiles
-var elem = document.querySelector('.content__tiles');
-var msnry = new Masonry(elem, {
+// build tiles on page clients
+const elem = document.querySelector('.content__tiles');
+const msnry = new Masonry(elem, {
 	// options
 	itemSelector: '.tile',
-	columnWidth: 225,
-	horizontalOrder: true
-	
+	columnWidth: 215,
+	stagger: 30,
+	// gutter: 10,
+	// containerStyle: null,
+	horizontalOrder: true	
 });
+msnry.layout();
 
 
 window.addEventListener('load', () => {
