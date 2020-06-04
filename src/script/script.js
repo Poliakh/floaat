@@ -1,3 +1,5 @@
+'use strict'
+
 function scrollMagic() { // wait for document ready
 	// init
 	const controller = new ScrollMagic.Controller({
